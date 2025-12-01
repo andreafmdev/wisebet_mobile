@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../theme/app_theme.dart';
+import 'rounded_icon_container.dart';
 
 /// Chip per statistiche con icona e valore
 class StatChip extends StatelessWidget {
@@ -31,8 +32,13 @@ class StatChip extends StatelessWidget {
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Icon(icon, size: 20, color: color ?? AppColors.accentGold),
-          const SizedBox(width: 8),
+          RoundedIconContainer(
+            icon: icon,
+            color: color ?? AppColors.accentGold,
+            size: 40,
+            iconSize: 20,
+          ),
+          const SizedBox(width: 12),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisSize: MainAxisSize.min,

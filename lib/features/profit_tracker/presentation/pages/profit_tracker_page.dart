@@ -5,6 +5,7 @@ import 'package:intl/intl.dart';
 import '../../../../core/theme/app_theme.dart';
 import '../../../../core/widgets/app_card.dart';
 import '../../../../core/widgets/profit_chart_widget.dart';
+import '../../../../core/widgets/rounded_icon_container.dart';
 import '../../../../core/providers/repositories_provider.dart';
 import '../../../../domain/models/profit_entry.dart';
 
@@ -222,17 +223,11 @@ class _ProfitEntryItem extends StatelessWidget {
       margin: const EdgeInsets.only(bottom: 12),
       child: Row(
         children: [
-          Container(
-            padding: const EdgeInsets.all(12),
-            decoration: BoxDecoration(
-              color: (isPositive ? AppColors.success : AppColors.error)
-                  .withOpacity(0.2),
-              borderRadius: BorderRadius.circular(12),
-            ),
-            child: Icon(
-              _getTypeIcon(entry.type),
-              color: isPositive ? AppColors.success : AppColors.error,
-            ),
+          RoundedIconContainer(
+            icon: _getTypeIcon(entry.type),
+            color: isPositive ? AppColors.success : AppColors.error,
+            size: 48,
+            iconSize: 24,
           ),
           const SizedBox(width: 16),
           Expanded(

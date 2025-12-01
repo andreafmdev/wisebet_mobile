@@ -6,6 +6,7 @@ import '../../../../core/widgets/app_card.dart';
 import '../../../../core/widgets/stat_chip.dart';
 import '../../../../core/widgets/section_title.dart';
 import '../../../../core/widgets/profit_chart_widget.dart';
+import '../../../../core/widgets/rounded_icon_container.dart';
 import '../../../../core/providers/repositories_provider.dart';
 import '../../../../core/providers/auth_provider.dart';
 import '../../../../domain/models/offer.dart';
@@ -264,16 +265,20 @@ class _QuickActionCard extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Container(
-            padding: const EdgeInsets.all(12),
-            decoration: BoxDecoration(
-              color: color.withOpacity(0.2),
-              shape: BoxShape.circle,
-            ),
-            child: Icon(icon, color: color, size: 24),
+          RoundedIconContainer(
+            icon: icon,
+            color: color,
+            size: 48,
+            iconSize: 24,
           ),
-          const SizedBox(height: 8),
-          Text(label, style: AppTextStyles.bodyMedium),
+          const SizedBox(height: 12),
+          Text(
+            label,
+            style: AppTextStyles.bodyMedium,
+            textAlign: TextAlign.center,
+            maxLines: 2,
+            overflow: TextOverflow.ellipsis,
+          ),
         ],
       ),
     );
